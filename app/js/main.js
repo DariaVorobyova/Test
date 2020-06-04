@@ -8,6 +8,10 @@ var swiper = new Swiper('.swiper-container', {
   },
 });
 swiper.slideTo(1, false,false);
+var shape = document.getElementById('shape');
+setTimeout(function () {
+  shape.setAttribute('stroke-dashoffset', 0);
+}, 0);
 swiper.on('slideChange', function () {
   // document.querySelector('.img1').src = 'img/image2.png';
   // document.querySelector('.img2').src = 'img/image3.png';

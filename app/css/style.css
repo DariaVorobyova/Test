@@ -744,12 +744,51 @@ button.swiper-pagination-bullet {
   }
 }
 
+path {
+  stroke-width: 2;
+  stroke-dasharray: 200%;
+  stroke-dashoffset: -200%;
+  animation: dasharray 5s linear forwards;
+}
+
+@keyframes dasharray {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 .swiper-container {
   width: 100%;
   height: 109px;
   position: fixed;
   top: 376px;
   z-index: 50;
+}
+
+.block {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  display: none;
+}
+
+.swiper-container:hover .block {
+  display: block;
+}
+
+.swiper-wrapper:hover::after {
+  content: 'gghhh';
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  z-index: 55;
+  background: rgba(255, 255, 230, 0.9);
+  font-size: 8px;
+  line-height: 10px;
+  font-family: 'TT Travels Light';
 }
 
 .swiper-slide {
