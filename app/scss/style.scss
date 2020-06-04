@@ -1,3 +1,265 @@
-.test:hover{
-    background-color: alpha($color: #000000)
+@import "../../node_modules/swiper/css/swiper";
+
+@mixin respond-to($media) {
+    @if $media == mobile {
+      @media only screen and (max-width: 375px) { @content; }
+    }
+    @else if $media == wide-mobile {
+      @media only screen and (min-width: 376px) and (max-width: 767px) { @content; }
+    }
+    @else if $media == tablets {
+      @media only screen and (min-width: 768px) and (max-width: 1023px) { @content; }
+    }
+    @else if $media == laptop {
+        @media only screen and (min-width: 1024px) and (max-width: 1439px) { @content; }
+      }
+    @else if $media == wide-laptop {
+        @media only screen and (min-width: 1440px)  { @content; }
+      }
+}
+@font-face{
+    font-family: 'Schnyder Cond XL Demi';
+    src: url('../fonts/Schnyder_X_Condensed/Schnyder_X_Cond_L_Demi.ttf')
+}
+
+@font-face {
+    font-family: 'TT Travels Light';
+    src: url("../fonts/TT_Travel/TTTravels-Light.ttf")
+}
+@font-face {
+    font-family: 'GT America';
+    src: url('../fonts/GT\ America\ Bold.ttf')
+}
+
+.header{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    &_logo{
+        display: flex;
+        font-family: 'GT America';
+        text-transform: capitalize;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: -1px;
+    }
+    &_nav{
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        margin: 0 48px;
+        &_menu{
+        list-style-type: none;
+         }
+        @include respond-to(mobile) {
+        display: none;
+        }
+        @include respond-to(wide-mobile) {
+        display: none;         
+        }
+        &_elem {
+            font-family: 'TT Travels Light';
+            font-size: 11px;
+            text-transform: capitalize;
+            font-weight: 300;
+            line-height: 13px;
+            letter-spacing: 0.02em;
+            text-align: right;
+            padding: 5px 0;
+         }
+    }
+}
+.main{
+    position: relative;
+    &_background-image{
+        position: fixed;
+        z-index: 10;
+        width: 608.38px;
+        height: 726.48px;
+        left: 473px;
+        top: 7px;
+        @include respond-to(mobile) {
+            width: 339px;
+            height: 429px;
+            left: 18px;
+            top: 62px;
+        }
+        @include respond-to(wide-mobile) {
+            width: 392px;
+            height: 493px;
+            left: 11px;
+            top: 51px;
+        }
+        @include respond-to(tablets) {
+            width: 628px;
+            height: 789px;
+            left: 70px;
+            top: 85px;            
+        }
+        @include respond-to(laptop) {
+            width: 506px;
+            height: 605px;
+            left: 259px;
+            top: 32px;           
+        }
+    }
+}
+.swiper-container {
+    width: 100%;
+    height: 109px;
+    position: fixed;
+    top: 376px;
+    z-index: 50;
+  }
+  .swiper-slide {
+    text-align: center!important;
+    background: none;
+    width: 609px!important;
+    font-family: 'Schnyder Cond XL Demi';
+    font-size: 125.581px;
+    line-height: 86%;
+    text-transform: uppercase;
+    color: #580300;
+    
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    mix-blend-mode: darken;
+    &-prev{
+        // left: -526.59px;
+        // top: 389.94px;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px #580300;
+        box-sizing: border-box;
+       transform: rotate(-1.5deg);
+    }
+    &-active{
+        color: #580300;
+        // left: 416px;
+        // margin: 0 278px;
+    }
+    &-next{
+        // left: 1346.53px;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px #580300;
+        box-sizing: border-box;
+        transform: rotate(1.5deg);
+    }
+  }
+.main-slider_item:first-child img{
+    position: fixed;
+    z-index: 20;
+    width: 476px;
+    height: 702px;
+    left: 491.27px;
+    top: 73.89px;
+    transform: rotate(1.5deg);
+    object-fit: cover;
+    @include respond-to(mobile) {
+        width: 249.67px;
+        height: 368.56px;
+        left: 68.18px;
+        top: 89px;
+    }
+    @include respond-to(wide-mobile) {
+        width: 273px;
+        height: 403px;
+        left: 76px;
+        top: 93px;
+    }
+    @include respond-to(tablets) {
+        width: 359px;
+        height: 530px;
+        left: 205.19px;
+        top: 210px;
+    }
+    @include respond-to(laptop) {
+        width: 359px;
+        height: 530px;
+        left: 339px;
+        top: 82px;
+    }
+}
+.main-slider_item:nth-child(2) img{
+    position: fixed;
+    z-index: 15;
+    width: 238px;
+    height: 331px;
+    left: 229.19px;
+    top: 201.76px;
+    transform: rotate(1.1deg);
+    object-fit: cover;
+    @include respond-to(mobile) {
+       display: none
+    }
+    @include respond-to(wide-mobile) {
+       display: none
+    }
+    @include respond-to(tablets) {
+        width: 163px;
+        height: 226px;
+        left: 28.32px;
+        top: 318px;
+    }
+    @include respond-to(laptop) {
+        width: 163px;
+        height: 226px;
+        left: 162.13px;
+        top: 190px;
+    }
+}
+.main-slider_item:last-child img{
+    position: fixed;
+    z-index: 25;
+    width: 345px;
+    height: 238px;
+    left: 890.32px;
+    top: 494.97px;
+    transform: rotate(2.03deg);
+    margin:-41px;
+    object-fit: cover;  
+    @include respond-to(mobile) {
+        display: none
+     }
+     @include respond-to(wide-mobile) {
+        display: none
+     }
+     @include respond-to(tablets) {
+        width: 234px;
+        height: 162px;
+        left: 510.56px;
+        top: 601.91px;
+     }
+     @include respond-to(laptop) {
+        width: 234px;
+        height: 162px;
+        left: 644.37px;
+        top: 473.91px;
+     }
+}
+
+.footer_container{
+    display: flex;
+    position: absolute;
+    left: 48px;
+    top: 801px;
+    &_item{
+    font-family: 'TT Travels Light';
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    line-height: 13px;
+    }
 }
