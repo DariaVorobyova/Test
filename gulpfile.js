@@ -18,7 +18,8 @@ gulp.task('html', function(){
 })
 
 gulp.task('js', function(){
-    return gulp.src('node_modules/swiper/js/swiper.js')
+    return gulp.src('node_modules/swiper/js/swiper.js',
+    'node_modules/parallax-js/dist/parallax.min.js')
         .pipe(concat('libs.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('app/js'))

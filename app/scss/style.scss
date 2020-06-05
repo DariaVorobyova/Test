@@ -1,4 +1,5 @@
 @import "../../node_modules/swiper/css/swiper";
+@import "https://necolas.github.io/normalize.css/8.0.1/normalize.css";
 
 @mixin respond-to($media) {
     @if $media == mobile {
@@ -92,9 +93,21 @@ html {
         display: -webkit-flex;
         display: flex;
         flex-direction: column;
-        // margin: 0 48px;
+        margin: 43px;
+
         &_menu{
         list-style-type: none;
+        text-decoration: none;
+        font-family: 'TT Travels Light';
+        font-size: 11px;
+        text-transform: capitalize;
+        font-weight: 300;
+        line-height: 13px;
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #000000;
+        padding: 5px;
+        cursor: none;
          }
         @include respond-to(mobile) {
         display: none;
@@ -102,16 +115,50 @@ html {
         @include respond-to(wide-mobile) {
         display: none;         
         }
-        &_elem {
-            font-family: 'TT Travels Light';
-            font-size: 11px;
-            text-transform: capitalize;
-            font-weight: 300;
-            line-height: 13px;
-            letter-spacing: 0.02em;
-            text-align: right;
-            padding: 5px 0;
-         }
+        &-mobile{
+            display: none;
+            @include respond-to(mobile) {
+                display: -moz-flex;
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                width: 20px;
+                height: 9px;
+                right: 20px;
+                top: 20px;
+
+                }
+                @include respond-to(wide-mobile) {
+                display: -moz-flex;
+                display: -webkit-flex;
+                display: flex; 
+                align-items: center;
+                flex-direction: column; 
+                position: absolute;
+                width: 20px;
+                height: 9px;
+                right: 24px;
+                top: 24px;       
+                }
+                // svg{
+                //     padding: 10px;
+                // }
+                hr{
+                    width: 20px;
+                }
+        }
+        // &_elem {
+        //     font-family: 'TT Travels Light';
+        //     font-size: 11px;
+        //     text-transform: capitalize;
+        //     font-weight: 300;
+        //     line-height: 13px;
+        //     letter-spacing: 0.02em;
+        //     text-align: right;
+        //     padding: 5px 0;
+        //  }
     }
 }
 .main{

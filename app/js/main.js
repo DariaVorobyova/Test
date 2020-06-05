@@ -1,13 +1,15 @@
 var swiper = new Swiper('.swiper-container', {
   slidesPerView: 3,
+  initialSlide: 2,
   loop: false,
   overflow: false,
+  centeredSlides: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
 });
-swiper.slideTo(1, false,false);
+
 
 init_pointer({
   pointerColor: "#000000", 
