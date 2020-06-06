@@ -4,10 +4,7 @@ var swiper = new Swiper('.swiper-container', {
   loop: false,
   overflow: false,
   centeredSlides: true,
-  // pagination: {
-  //   el: '.swiper-pagination',
-  //   clickable: true,
-  // },
+
 });
 
 
@@ -29,39 +26,60 @@ function parallax(event){
   
 document.addEventListener('mousemove', parallax);
 
+// function changeImg(){
+//   const imgLinks = [
+//     'img/image1.png',
+//     'img/image2.png',
+//     'img/image3.png'
+// ];
+// const delay = 1000;
+// let currentIndex = 0;
+// setInterval(function() {
+//   console.log(imgLinks[currentIndex])
+//     document.getElementById('imaaage').src = imgLinks[currentIndex];
+//     currentIndex++;
+//     if(currentIndex >= imgLinks.length) {
+//         currentIndex = 0;
+//     }
+// }, delay);
+// }
+initImg('#test img', [
+    'img/image1.png',
+    'img/image2.png',
+    'img/image3.png'
+]); 
+function initImg(selector, srcArr) {
+  const img = document.getElementById('imaaage'); 
+  Object.assign(img, {
+    buf: Object.assign(new Image(), { img }), 
+    srcArr: [...srcArr], 
+    changeInterval: 5e3,
+    bufIdx: 0,
+    change: function () {
+      this.style.animationName = 'img-in'; 
+      this.src = this.buf.src || this.nextImage(); 
+      this.buf.src = this.nextImage(); 
+    }, 
+    nextImage: function () {
+      this.bufIdx = ++this.bufIdx < this.srcArr.length ? this.bufIdx : 0;
+      return this.srcArr[this.bufIdx];
+    }
+  }); 
+  img.buf.addEventListener('load', loadHandler); 
+  img.addEventListener('animationend', animEndHandler); 
+  img.change(); 
+  return img; 
 
-
-swiper.on('slideChange', function () {
- all_images = new Array (
-  "img/image1.png",
-  "img/image2.png",
-  "img/image3.png",
-  "img/image4.png");
-  var ImgNum = 0;
-  var image = document.querySelectorAll('.slider-images')
-  var ImgLength = all_images.length - 1;
-  var delay = 5000;
-  var lock = false;
-  var run;
-  
-  function chgImg(direction) {
-   if (document.images) {
-    ImgNum = ImgNum + direction;
-    if (ImgNum > ImgLength) { ImgNum = 0; }
-    if (ImgNum < 0) { ImgNum = ImgLength; }
-    image.src = all_images[ImgNum];
-   }
+  function loadHandler() {
+    setTimeout(
+      () => this.img.style.animationName = 'img-out', 
+      this.img.changeInterval 
+    ); 
   }
-  
-  function auto() {
-   if (lock == true) {
-    lock = false;
-    window.clearInterval(run);
-   }
-   else if (lock == false) {
-    lock = true;
-    run = setInterval("chgImg(1)", delay);
-   }
+  function animEndHandler({ animationName }) {
+    if (animationName === 'img-out') 
+      this.change(); 
   }
-});
+}
+swiper.on('slideChange', initImg);
 
