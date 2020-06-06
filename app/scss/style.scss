@@ -32,10 +32,12 @@
     src: url('../fonts/GT\ America\ Bold.ttf')
 }
 $slider-color: #580300;
-// body{
-//     cursor: no-drop;
-// }
+$main-font: 'TT Travels Light';
+$slider-font: 'Schnyder Cond XL Demi';
 
+* {
+    box-sizing: border-box;
+}
 html {
     cursor: none !important;
 }
@@ -80,6 +82,19 @@ html {
         height: 16px;
         margin-left: 47px;
         margin-top: 27px;
+        opacity:0; 
+        transition: 1s; 
+        animation: show 3s 1; 
+        animation-fill-mode: forwards; 
+        animation-delay: 1s; 
+        @keyframes show{
+            0%{
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+            }
         &_text{
             font-family: 'GT America';
             text-transform: capitalize;
@@ -98,7 +113,7 @@ html {
         &_menu{
         list-style-type: none;
         text-decoration: none;
-        font-family: 'TT Travels Light';
+        font-family: $main-font;
         font-size: 11px;
         text-transform: capitalize;
         font-weight: 300;
@@ -240,7 +255,7 @@ path {
     left: 50rem;
     top: 15rem;
     display: block;
-    font-family: 'TT Travels';
+    font-family: $main-font;
     font-size: 15px;
     line-height: 10px;
     letter-spacing: 0.02em;
@@ -260,7 +275,7 @@ path {
     text-align: center!important;
     background: none;
     width: 609px!important;
-    font-family: 'Schnyder Cond XL Demi';
+    font-family: $slider-font;
     font-size: 125.581px;
     line-height: 86%;
     text-transform: uppercase;
@@ -419,6 +434,21 @@ path {
         top: 473.91px;
      }
 }
+.slider-images{
+    opacity:0; 
+    transition: 0.5s; 
+    animation: show 3s 1; 
+    animation-fill-mode: forwards; 
+    animation-delay: 1s; 
+}
+@keyframes show {
+    0%{
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+    }
 
 .footer_container{
     display: -moz-flex;
@@ -445,9 +475,10 @@ path {
         top: 668px;
      }
     &_item{
-    font-family: 'TT Travels Light';
+    font-family: $main-font;
     font-size: 11px;
     letter-spacing: 0.02em;
     line-height: 13px;
     }
 }
+

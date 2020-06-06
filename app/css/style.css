@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Swiper 5.4.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -645,6 +646,10 @@ button.swiper-pagination-bullet {
   src: url("../fonts/GT America Bold.ttf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   cursor: none !important;
 }
@@ -692,6 +697,20 @@ html {
   height: 16px;
   margin-left: 47px;
   margin-top: 27px;
+  opacity: 0;
+  transition: 1s;
+  animation: show 3s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .header_logo_text {
@@ -713,7 +732,7 @@ html {
 .header_nav_menu {
   list-style-type: none;
   text-decoration: none;
-  font-family: 'TT Travels Light';
+  font-family: "TT Travels Light";
   font-size: 11px;
   text-transform: capitalize;
   font-weight: 300;
@@ -880,7 +899,7 @@ path {
   left: 50rem;
   top: 15rem;
   display: block;
-  font-family: 'TT Travels';
+  font-family: "TT Travels Light";
   font-size: 15px;
   line-height: 10px;
   letter-spacing: 0.02em;
@@ -901,7 +920,7 @@ path {
   text-align: center !important;
   background: none;
   width: 609px !important;
-  font-family: 'Schnyder Cond XL Demi';
+  font-family: "Schnyder Cond XL Demi";
   font-size: 125.581px;
   line-height: 86%;
   text-transform: uppercase;
@@ -1105,6 +1124,28 @@ path {
   }
 }
 
+.slider-images {
+  opacity: 0;
+  /*Элемент полностью прозрачный (невидимый)*/
+  transition: 0.5s;
+  /*Скорость перехода состояния элемента*/
+  animation: show 3s 1;
+  /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards;
+  /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 1s;
+  /* Задержка перед началом */
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .footer_container {
   display: -moz-flex;
   display: -webkit-flex;
@@ -1144,7 +1185,7 @@ path {
 }
 
 .footer_container_item {
-  font-family: 'TT Travels Light';
+  font-family: "TT Travels Light";
   font-size: 11px;
   letter-spacing: 0.02em;
   line-height: 13px;

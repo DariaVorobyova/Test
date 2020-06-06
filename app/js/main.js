@@ -4,10 +4,10 @@ var swiper = new Swiper('.swiper-container', {
   loop: false,
   overflow: false,
   centeredSlides: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+  // pagination: {
+  //   el: '.swiper-pagination',
+  //   clickable: true,
+  // },
 });
 
 
@@ -17,26 +17,51 @@ init_pointer({
   ringClickSize: 10 
 })
 
+function parallax(event){
+  this.querySelectorAll('.slider-images').forEach(images => {
+    let speed = images.getAttribute("data-speed") * 0.01;
+    let distanceX = (screen.width / 2 - event.clientX) * speed;
+    let distanceY = (screen.height / 2 - event.clientY) * speed;
+    images.style.transform = `translate(${distanceX}px, ${distanceY}px)`;
+  });
+}
+
+  
+document.addEventListener('mousemove', parallax);
+
+
+
 swiper.on('slideChange', function () {
-  // document.querySelector('.img1').src = 'img/image2.png';
-  // document.querySelector('.img2').src = 'img/image3.png';
-  // document.querySelector('.img3').src = 'img/image1.png'
+ all_images = new Array (
+  "img/image1.png",
+  "img/image2.png",
+  "img/image3.png",
+  "img/image4.png");
+  var ImgNum = 0;
+  var image = document.querySelectorAll('.slider-images')
+  var ImgLength = all_images.length - 1;
+  var delay = 5000;
+  var lock = false;
+  var run;
   
-    var _this = document.querySelectorAll('.img'),
-      images = _this.getAttribute('data').split(','),
-      counter = 0;
-    this.setAttribute('data-src', this.src);
-    _this.timer = setInterval(function() {
-      if(counter > images.length) {
-        counter = 0;
-      }
-      if (images[counter] != undefined) {
-        _this.src=images[counter];
-      } else {
-        _this.src=_this.getAttribute('data-src');
-      }
+  function chgImg(direction) {
+   if (document.images) {
+    ImgNum = ImgNum + direction;
+    if (ImgNum > ImgLength) { ImgNum = 0; }
+    if (ImgNum < 0) { ImgNum = ImgLength; }
+    image.src = all_images[ImgNum];
+   }
+  }
   
-      counter++;
-    }, 750);
+  function auto() {
+   if (lock == true) {
+    lock = false;
+    window.clearInterval(run);
+   }
+   else if (lock == false) {
+    lock = true;
+    run = setInterval("chgImg(1)", delay);
+   }
+  }
 });
 
