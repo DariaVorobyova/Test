@@ -667,8 +667,8 @@ body {
   border-radius: 4px;
   z-index: 1;
   pointer-events: none;
-  -moz-transition: border-color 0.5s;
   -webkit-transition: border-color 0.5s;
+  -moz-transition: border-color 0.5s;
   transition: border-color 0.5s;
 }
 
@@ -762,12 +762,12 @@ body {
   -webkit-flex-direction: column;
   flex-direction: column;
   margin: 43px;
-  animation-name: slideLeft;
   -webkit-animation-name: slideLeft;
   -moz-animation-name: slideLeft;
-  animation-duration: 4s;
+  animation-name: slideLeft;
   -webkit-animation-duration: 4s;
   -moz-animation-duration: 4s;
+  animation-duration: 4s;
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
   -moz-animation-timing-function: ease-in-out;
@@ -994,12 +994,12 @@ path {
   position: absolute;
   top: 376px;
   z-index: 50;
-  animation-name: slideDown;
   -webkit-animation-name: slideDown;
   -moz-animation-name: slideDown;
-  animation-duration: 4s;
+  animation-name: slideDown;
   -webkit-animation-duration: 4s;
   -moz-animation-duration: 4s;
+  animation-duration: 4s;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
   -moz-animation-timing-function: ease;
@@ -1145,8 +1145,8 @@ path {
 }
 
 .main_swiper-container .swiper-container_title {
-  -moz-transition: 1s;
   -webkit-transition: 1s;
+  -moz-transition: 1s;
   transition: 1s;
 }
 
@@ -1207,6 +1207,8 @@ path {
   color: transparent;
   -webkit-text-stroke: 1px #580300;
   box-sizing: border-box;
+  -webkit-transform: rotate(-1.5deg);
+  -moz-transform: rotate(-1.5deg);
   transform: rotate(-1.5deg);
 }
 
@@ -1220,6 +1222,8 @@ path {
   color: transparent;
   -webkit-text-stroke: 1px #580300;
   box-sizing: border-box;
+  -webkit-transform: rotate(1.5deg);
+  -moz-transform: rotate(1.5deg);
   transform: rotate(1.5deg);
 }
 
@@ -1234,10 +1238,10 @@ path {
   height: 702px;
   left: 491.27px;
   top: 73.89px;
-  -moz-transform: rotate(1.5deg);
-  -webkit-transform: rotate(1.5deg);
-  transform: rotate(1.5deg);
   object-fit: cover;
+  -webkit-transform: rotate(1.5deg);
+  -moz-transform: rotate(1.5deg);
+  transform: rotate(1.5deg);
 }
 
 @media only screen and (max-width: 375px) {
@@ -1283,6 +1287,8 @@ path {
   height: 331px;
   left: 229.19px;
   top: 201.76px;
+  -webkit-transform: rotate(1.1deg);
+  -moz-transform: rotate(1.1deg);
   transform: rotate(1.1deg);
   object-fit: cover;
 }
@@ -1324,8 +1330,8 @@ path {
   height: 238px;
   left: 890.32px;
   top: 494.97px;
-  -moz-transform: rotate(2.03deg);
   -webkit-transform: rotate(2.03deg);
+  -moz-transform: rotate(2.03deg);
   transform: rotate(2.03deg);
   margin: -41px;
   object-fit: cover;
@@ -1365,6 +1371,27 @@ path {
   -webkit-animation: 4s linear forwards;
   -moz-animation: 4s linear forwards;
   animation: 4s linear forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(4%);
+  }
+  65% {
+    transform: translateY(-2%);
+  }
+  80% {
+    transform: translateY(2%);
+  }
+  95% {
+    transform: translateY(-2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @-webkit-keyframes img-in {

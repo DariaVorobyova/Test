@@ -18,7 +18,7 @@
         @media only screen and (min-width: 1440px)  { @content; }
       }
 }
-@mixin justify-content($property) {
+ @mixin justify-content($property) {
     -webkit-justify-content: $property;
     -moz-justify-content: $property;
     justify-content: $property;
@@ -27,6 +27,26 @@
     -webkit-align-items: $property;
     -moz-align-items: $property;
     align-items: $property;
+  }
+  @mixin animation-duration($property) {
+    -webkit-animation-duration: $property;
+    -moz-animation-duration: $property;
+    animation-duration: $property;
+  }
+  @mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    transform: $property;
+  }
+  @mixin animation-name($property) {
+    -webkit-animation-name: $property;
+    -moz-animation-name: $property;
+    animation-name: $property;
+  }
+  @mixin transition($property) {
+    -webkit-transition: $property;
+    -moz-transition: $property;
+    transition: $property;
   }
 
 @font-face{
@@ -67,9 +87,7 @@ body{
     border-radius: 4px;
     z-index: 1;
     pointer-events: none;
-    -moz-transition: border-color 0.5s;
-    -webkit-transition: border-color 0.5s;
-    transition: border-color 0.5s;
+    @include transition(border-color 0.5s);
 }
 
 #pointer-ring {
@@ -91,9 +109,6 @@ body{
     display: -moz-flex;
     display: -webkit-flex;
     display: flex;
-    // -moz-justify-content: space-between;
-    // -webkit-justify-content: space-between;
-    // justify-content: space-between;
     @include justify-content(space-between);
     height: 93px;
     &_logo{
@@ -103,9 +118,7 @@ body{
         margin-left: 47px;
         margin-top: 27px;
         opacity:0; 
-        -webkit-transition: 1s; 
-        -moz-transition: 1s; 
-        transition: 1s; 
+        @include transition(1s);
         -moz-animation: show 3s 1;
         -webkit-animation: show 3s 1;
         animation: show 3s 1; 
@@ -155,15 +168,8 @@ body{
         -webkit-flex-direction: column;
         flex-direction: column;
         margin: 43px;
-
-        animation-name: slideLeft;
-        -webkit-animation-name: slideLeft;  
-        -moz-animation-name: slideLeft;
-     
-        animation-duration: $animation-time; 
-        -webkit-animation-duration: $animation-time;
-        -moz-animation-duration: $animation-time;
-     
+        @include animation-name(slideLeft);
+        @include animation-duration($animation-time);
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
         -moz-animation-timing-function: ease-in-out; 
@@ -196,7 +202,6 @@ body{
                 display: flex;
                 flex-direction: column;
                 @include align-items(center);
-                // align-items: center;
                 position: absolute;
                 width: 20px;
                 height: 9px;
@@ -208,7 +213,6 @@ body{
                 display: -moz-flex;
                 display: -webkit-flex;
                 display: flex; 
-                // align-items: center;
                 @include align-items(center);
                 flex-direction: column; 
                 position: absolute;
@@ -357,15 +361,9 @@ path {
     position: absolute;
     top: 376px;
     z-index: 50;
-
-    animation-name: slideDown;
-    -webkit-animation-name: slideDown;  
-    -moz-animation-name: slideDown;
- 
-    animation-duration: $animation-time; 
-    -webkit-animation-duration: $animation-time;
-    -moz-animation-duration: $animation-time;
- 
+    @include animation-name(slideDown);
+    @include animation-duration($animation-time);
+    
     animation-timing-function: ease;    
     -webkit-animation-timing-function: ease; 
     -moz-animation-timing-function: ease;
@@ -485,9 +483,7 @@ path {
     opacity: 1;
   }
   .main_swiper-container .swiper-container_title {
-    -moz-transition: 1s;
-    -webkit-transition: 1s;
-    transition: 1s;
+    @include transition(1s);
 }
 
   .swiper-slide {
@@ -503,15 +499,7 @@ path {
     display: -moz-flex;
     display: -webkit-flex;
     display: flex;
-    // -webkit-box-pack: center;
-    // -ms-flex-pack: center;
     @include justify-content(center);
-    // -webkit-justify-content: center;
-    // justify-content: center;
-    // -webkit-box-align: center;
-    // -ms-flex-align: center;
-    // -webkit-align-items: center;
-    // align-items: center;
     @include align-items(center);
     mix-blend-mode: darken;
 
@@ -539,7 +527,7 @@ path {
         color: transparent;
         -webkit-text-stroke: 1px $slider-color;
         box-sizing: border-box;
-       transform: rotate(-1.5deg);
+       @include transform(rotate(-1.5deg));
     }
     &-active{
         color: $slider-color;
@@ -550,7 +538,7 @@ path {
         color: transparent;
         -webkit-text-stroke: 1px $slider-color;
         box-sizing: border-box;
-        transform: rotate(1.5deg);
+        @include transform(rotate(1.5deg));
     }
   }
 .main_gallery{
@@ -564,10 +552,8 @@ path {
     height: 702px;
     left: 491.27px;
     top: 73.89px;
-    -moz-transform: rotate(1.5deg);
-    -webkit-transform: rotate(1.5deg);
-    transform: rotate(1.5deg);
     object-fit: cover;
+    @include transform(rotate(1.5deg));
     @include respond-to(mobile) {
         width: 249.67px;
         height: 368.56px;
@@ -600,7 +586,7 @@ path {
     height: 331px;
     left: 229.19px;
     top: 201.76px;
-    transform: rotate(1.1deg);
+    @include transform(rotate(1.1deg));
     object-fit: cover;
     @include respond-to(mobile) {
        display: none
@@ -628,9 +614,7 @@ path {
     height: 238px;
     left: 890.32px;
     top: 494.97px;
-    -moz-transform: rotate(2.03deg);
-    -webkit-transform: rotate(2.03deg);
-    transform: rotate(2.03deg);
+    @include transform(rotate(2.03deg));
     margin:-41px;
     object-fit: cover;  
     @include respond-to(mobile) {
@@ -656,7 +640,7 @@ path {
     -webkit-animation:  $animation-time linear forwards;
     -moz-animation:  $animation-time linear forwards;
     animation:  $animation-time linear forwards;
-}
+
 
 @-webkit-keyframes img-in {
     0% {  -webkit-opacity: 0; -webkit-transform: scale(1.05); }
@@ -676,9 +660,6 @@ path {
     display: -webkit-flex;
     display: flex;
     @include align-items(center);
-    // -moz-align-items: center;
-    // -webkit-align-items: center;
-    // align-items: center;
     position: absolute;
     left: 48px;
     top: 801px;
