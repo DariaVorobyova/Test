@@ -1,20 +1,20 @@
 var swiper = new Swiper('.swiper-container', {
   slidesPerView: 3,
   initialSlide: 1,
-  spaceBetween: 100,
-  slidesOffsetBefore:-190,
+  spaceBetween: 40,
+  slidesOffsetBefore:-170,
   loop: false,
   overflow: false,
   centeredSlides: true,
   breakpoints: { 
-    375: {spaceBetween: 100,
-      lidesOffsetBefore:-190, }, 
+    375: {spaceBetween: 40,
+      lidesOffsetBefore:-170, }, 
     414: { spaceBetween: 50,
-      slidesOffsetBefore:-288, }, 
+      slidesOffsetBefore:-188, }, 
     768: { spaceBetween: 80,
-      slidesOffsetBefore:-390, },  
-    1024: { spaceBetween: 198,
-      slidesOffsetBefore:-387, } ,
+      slidesOffsetBefore:-380, },  
+    1024: { spaceBetween: 188,
+      slidesOffsetBefore:-367, } ,
     1440: { spaceBetween: 288,
         slidesOffsetBefore:-480, }} 
 
